@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -206,6 +205,10 @@
           <h5 class="archive-title" style="text-decoration: none;">一月</h5>
           
             <li class="archive-post archive-day" data-date="20200102">
+              <a class="archive-post-title" href="https://inspire-lts.github.io/2020/01/test2/">Test2</a>
+            </li>
+          
+            <li class="archive-post archive-day" data-date="20200102">
               <a class="archive-post-title" href="https://inspire-lts.github.io/2020/01/test/">Test</a>
             </li>
           
@@ -303,23 +306,3 @@ $(document).ready(function() {
   </body>
 </html>
 
-=======
-<%- partial('_partial/head') %>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
-      <div class="outer">
-        <section id="main"><%- body %></section>
-        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
-          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
-        <% } %>
-      </div>
-      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-    </div>
-    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-    <%- partial('_partial/after-footer') %>
-  </div>
-</body>
-</html>
->>>>>>> origin/master
