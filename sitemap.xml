@@ -43,6 +43,34 @@
   </url>
   
   <url>
+<<<<<<< HEAD
+=======
+    <loc>https://inspire-lts.github.io/categories/category/</loc>
+    <lastmod>2020-01-02T19:03:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/categories/subcategory/</loc>
+    <lastmod>2020-01-02T19:03:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/tag1/</loc>
+    <lastmod>2020-01-02T19:03:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/tag2/</loc>
+    <lastmod>2020-01-02T19:03:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/2020/01/test/</loc>
+    <lastmod>2020-01-02T19:03:17+08:00</lastmod>
+  </url>
+  
+  <url>
+>>>>>>> 11587f361b66a31388beb64051d417921102eb2b
     <loc>https://inspire-lts.github.io/archives/</loc>
   </url>
   

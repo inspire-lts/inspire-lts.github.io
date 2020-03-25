@@ -20,5 +20,26 @@
       <description></description>
     </item>
     
+<<<<<<< HEAD
+=======
+    <item>
+      <title>category</title>
+      <link>https://inspire-lts.github.io/categories/category/</link>
+      <pubDate>Thu, 02 Jan 2020 19:03:17 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/categories/category/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>subcategory</title>
+      <link>https://inspire-lts.github.io/categories/subcategory/</link>
+      <pubDate>Thu, 02 Jan 2020 19:03:17 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/categories/subcategory/</guid>
+      <description></description>
+    </item>
+    
+>>>>>>> 11587f361b66a31388beb64051d417921102eb2b
   </channel>
 </rss>

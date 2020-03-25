@@ -17,7 +17,11 @@
       <pubDate>Wed, 25 Mar 2020 17:12:01 +0800</pubDate>
       
       <guid>https://inspire-lts.github.io/2020/03/ssd/</guid>
+<<<<<<< HEAD
       <description>ASFF论文简介</description>
+=======
+      <description>ssd论文简介</description>
+>>>>>>> 11587f361b66a31388beb64051d417921102eb2b
     </item>
     
   </channel>
