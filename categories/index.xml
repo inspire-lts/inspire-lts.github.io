@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2020 19:03:17 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 17:12:01 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>深度学习</title>
+      <link>https://inspire-lts.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 25 Mar 2020 17:12:01 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>category</title>
