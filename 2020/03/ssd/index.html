@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.62.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="阿汤">
+<meta name="keywords" content="tech, java, js, css, 深度学习, 随笔">
+<meta name="description" content="ASFF论文简介">
+
+
+<meta property="og:description" content="ASFF论文简介">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSD">
+<meta name="twitter:title" content="SSD">
+<meta property="og:url" content="https://inspire-lts.github.io/2020/03/ssd/">
+<meta property="twitter:url" content="https://inspire-lts.github.io/2020/03/ssd/">
+<meta property="og:site_name" content="天天睡大觉">
+<meta property="og:description" content="ASFF论文简介">
+<meta name="twitter:description" content="ASFF论文简介">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2020-03-25T17:12:01">
+  
+  
+    <meta property="article:modified_time" content="2020-03-25T17:12:01">
+  
+  
+  
+    
+      <meta property="article:section" content="深度学习">
+    
+  
+  
+    
+      <meta property="article:tag" content="SSD">
+    
+      <meta property="article:tag" content="Single-one shot">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://inspire-lts.github.io/images/cover.jpg">
+  <meta property="twitter:image" content="https://inspire-lts.github.io/images/cover.jpg">
+
+
+
+
+
+  <meta property="og:image" content="https://inspire-lts.github.io/images/lts.jpg">
+  <meta property="twitter:image" content="https://inspire-lts.github.io/images/lts.jpg">
+
+
+    <title>SSD</title>
+
+    <link rel="icon" href="https://inspire-lts.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://inspire-lts.github.io/2020/03/ssd/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://inspire-lts.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://inspire-lts.github.io/">天天睡大觉</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://inspire-lts.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://inspire-lts.github.io/images/lts.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://inspire-lts.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://inspire-lts.github.io/images/lts.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">阿汤</h4>
+        
+          <h5 class="sidebar-profile-bio">步履不停</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/inspire-lts" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      SSD
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-03-25T17:12:01&#43;08:00">
+        
+  三月 25, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://inspire-lts.github.io/categories/%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0">深度学习</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <!-- raw HTML omitted -->
+<h3 id="heading">前言</h3>
+<p><strong>Learning Spatical Fusion for Single-Shot Object Detection</strong>，主要贡献是提出了<strong>自适应空间特征融合</strong>(ASFF).金字塔特征表示法是解决目标检测尺度变化挑战的常用方法。但是，对于基于FPN的单机检测器来说，不同特征尺度之间的不一致时其主要限制。因此这篇论文提出了一种新的数据驱动的金字塔特征融合方式，称之为自适应空间特征融合。它学习了在空间上过滤冲突信息以抑制梯度反传的时候不一致的方法，从而改善了特征的比例不变性，并且推理开销降低。借助ASFF策略和可靠的YOLOV3 BaseLine，在COCO数据集上实现了45FPS/42.4%AP以及29FPS/43.9%AP。</p>
+<h3 id="yolov3">一个更强的YOLOV3基准</h3>
+<p>这篇文章之所以取得这么好的效果不仅仅是因为他提出了ASFF这种特征自适应融合方式，它还构建了一个非常强得YOLOV3 BaseLine，这个BaseLine在MSCOCO上的mAP就达到了38.8%。相比于原始的YOLOV3的33%，提升了接近6个点。论文使用的技巧包括-</p>
+<ul>
+<li><strong>Guided Anchoring</strong></li>
+<li><strong>Bag of Tricks</strong></li>
+<li><strong>Additional IOU LOSS</strong></li>
+</ul>
+<h3 id="asff">自适应特征融合（ASFF)</h3>
+<p>为了更加充分的利用高层特征的语义信息和底层特征的细粒度特征，很多网络都会采用FPN的方式输出多层特征，但是无论是类似于YOLOv3还是RetinaNet，它们都多用concatenation或者element-wise这种直接衔接或者相加的方式，论文认为这样并不能充分的利用不同尺度的特征，所以提出了Adaptively Spatial Feature Fusion（自适应特征融合方式).其结构如下：
+<img src="./img/asff.png" alt=""></p>
+<p>绿色框描述了如何将特征融合，其中 $$X^1$$ ,$$X^2$$,$$X^3$$分别来自level1,level2,level3这三个层的特征。然后level1，levlel2,level3这三个层的特征分别乘上权重参数$$a^3$$,$$b^3$$,$$r^3$$并求和。</p>
+<p>因此这里是相加的操作，所以需要加的时候必须保证leve1，level2，level3输出的特征相同，且通道数也要相同，所以需要对不同的特征层做上采样或者下采样并调整通道数来满足条件。对于需要上采样的层，如想得到ASFF3，需要将level1的特征图调整到和level3的特征图尺寸一致，采用的方式是先通过卷积调整到和level3通道数一致，再用插值的方式将尺寸调整到一致。而对于需要下采样的层，比如想得到ASFF1，对于level2的特征图到level1的特征图只需要用一个并且的卷积就OK了，如果是level3的特征图到level1的特征图则需要在卷积的基础上再加上一个的最大池化层。</p>
+<h3 id="asff-1">ASFF的可解释性</h3>
+<p>论文通过梯度和反向传播来解释为什么ASFF会有效。论文以YOLOV3为例，加入FPN后通过链式法则我们可以知道反向传播时候的梯度计算公式为：</p>
+<h3 id="heading-1">实验结果</h3>
+<p>展示了ASFF相比于concat和sum方式比较的结果：
+<img src="./img/result1.png" alt="">
+接着作者又对ASFF做了可视化分析：
+<img src="./img/result2.png" alt="">
+可视化的结果进一步解释了ASFF的有效性。比如对于斑马的检测，可以看到斑马实际上是在level1这个特征图上被检测到的（响应越大，heatmap越红），并且观察level1这一层的a,b,r的权重可以发现，对于图中斑马这种大目标更容易被高层的特征捕捉到，因为对于大物体我们需要更大的感受野和高级语义特征。而对于下面的羊群的检测来讲，可以看到羊更多的是被level2和level3检测到，这也说明了对于小物体，我们更需要底层特征中的细粒度特征来辨别.</p>
+<h3 id="heading-2">参考</h3>
+<ul>
+<li>Guided Anchoring：Jiaqi Wang, Kai Chen, Shuo Yang, Chen Change Loy, andDahua Lin. Region proposal by guided anchoring. InCVPR,2019.</li>
+<li><a href="https://arxiv.org/pdf/1911.09516.pdf">https://arxiv.org/pdf/1911.09516.pdf</a></li>
+<li><a href="https://arxiv.org/abs/1902.04103">https://arxiv.org/abs/1902.04103</a></li>
+<li><a href="https://blog.csdn.net/watermelon1123/article/details/103277773">https://blog.csdn.net/watermelon1123/article/details/103277773</a></li>
+</ul>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/ssd/">SSD</a>
+
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/single-one-shot/">Single-one shot</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 阿汤. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://inspire-lts.github.io/images/lts.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">阿汤</h4>
+    
+      <div id="about-card-bio">步履不停</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        重庆
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://inspire-lts.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://inspire-lts.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/03\/ssd\/';
+          
+            this.page.identifier = '\/2020\/03\/ssd\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
