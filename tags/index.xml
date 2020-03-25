@@ -6,49 +6,9 @@
     <description>Recent content in Tags on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2020 17:12:01 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Single-one shot</title>
-      <link>https://inspire-lts.github.io/tags/single-one-shot/</link>
-      <pubDate>Wed, 25 Mar 2020 17:12:01 +0800</pubDate>
-      
-      <guid>https://inspire-lts.github.io/tags/single-one-shot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SSD</title>
-      <link>https://inspire-lts.github.io/tags/ssd/</link>
-      <pubDate>Wed, 25 Mar 2020 17:12:01 +0800</pubDate>
-      
-      <guid>https://inspire-lts.github.io/tags/ssd/</guid>
-      <description></description>
-    </item>
-    
-<<<<<<< HEAD
-=======
-    <item>
-      <title>tag1</title>
-      <link>https://inspire-lts.github.io/tags/tag1/</link>
-      <pubDate>Thu, 02 Jan 2020 19:03:17 +0800</pubDate>
-      
-      <guid>https://inspire-lts.github.io/tags/tag1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag2</title>
-      <link>https://inspire-lts.github.io/tags/tag2/</link>
-      <pubDate>Thu, 02 Jan 2020 19:03:17 +0800</pubDate>
-      
-      <guid>https://inspire-lts.github.io/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
   </channel>
 </rss>
