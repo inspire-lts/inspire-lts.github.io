@@ -5,41 +5,28 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.62.1 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="阿汤">
-<<<<<<< HEAD
 <meta name="keywords" content="tech, java, js, css, 深度学习, 随笔">
-<meta name="description" content="ASFF论文简介">
+<meta name="description" content="">
 
 
-<meta property="og:description" content="ASFF论文简介">
-=======
-<meta name="keywords" content="tech, java, C&#43;&#43;, 随笔">
-<meta name="description" content="ssd论文简介">
-
-
-<meta property="og:description" content="ssd论文简介">
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
+<meta property="og:description" content="">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSD">
 <meta name="twitter:title" content="SSD">
 <meta property="og:url" content="https://inspire-lts.github.io/2020/03/ssd/">
 <meta property="twitter:url" content="https://inspire-lts.github.io/2020/03/ssd/">
 <meta property="og:site_name" content="天天睡大觉">
-<<<<<<< HEAD
-<meta property="og:description" content="ASFF论文简介">
-<meta name="twitter:description" content="ASFF论文简介">
-=======
-<meta property="og:description" content="ssd论文简介">
-<meta name="twitter:description" content="ssd论文简介">
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2020-03-25T17:12:01">
+    <meta property="article:published_time" content="2020-03-25T23:56:12">
   
   
-    <meta property="article:modified_time" content="2020-03-25T17:12:01">
+    <meta property="article:modified_time" content="2020-03-25T23:56:12">
   
   
   
@@ -51,7 +38,7 @@
     
       <meta property="article:tag" content="SSD">
     
-      <meta property="article:tag" content="Single-one shot">
+      <meta property="article:tag" content="single-one shot">
     
   
 
@@ -64,8 +51,8 @@
 
 
 
-  <meta property="og:image" content="https://inspire-lts.github.io/images/cover.jpg">
-  <meta property="twitter:image" content="https://inspire-lts.github.io/images/cover.jpg">
+  <meta property="og:image" content="https://img.laoooo.cn:88/2020/03/25/66b3c09036c27.png">
+  <meta property="twitter:image" content="https://img.laoooo.cn:88/2020/03/25/66b3c09036c27.png">
 
 
 
@@ -218,11 +205,7 @@
 
     </ul>
   </div>
-<<<<<<< HEAD
-=======
-  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=80 
-  src="//music.163.com/outchain/player?type=2&id=757761&auto=1&height=66"></iframe>
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
+  <iframe frameborder="no"  marginwidth="0" marginheight="0" width=250 height=86 src="//music.163.com/outchain/player?type=2&id=757761&auto=1&height=66"></iframe>
 </nav>
 
       
@@ -243,7 +226,7 @@
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-03-25T17:12:01&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-03-25T23:56:12&#43;08:00">
         
   三月 25, 2020
 
@@ -264,37 +247,262 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <!-- raw HTML omitted -->
-<h3 id="heading">前言</h3>
-<p><strong>Learning Spatical Fusion for Single-Shot Object Detection</strong>，主要贡献是提出了<strong>自适应空间特征融合</strong>(ASFF).金字塔特征表示法是解决目标检测尺度变化挑战的常用方法。但是，对于基于FPN的单机检测器来说，不同特征尺度之间的不一致时其主要限制。因此这篇论文提出了一种新的数据驱动的金字塔特征融合方式，称之为自适应空间特征融合。它学习了在空间上过滤冲突信息以抑制梯度反传的时候不一致的方法，从而改善了特征的比例不变性，并且推理开销降低。借助ASFF策略和可靠的YOLOV3 BaseLine，在COCO数据集上实现了45FPS/42.4%AP以及29FPS/43.9%AP。</p>
-<h3 id="yolov3">一个更强的YOLOV3基准</h3>
-<p>这篇文章之所以取得这么好的效果不仅仅是因为他提出了ASFF这种特征自适应融合方式，它还构建了一个非常强得YOLOV3 BaseLine，这个BaseLine在MSCOCO上的mAP就达到了38.8%。相比于原始的YOLOV3的33%，提升了接近6个点。论文使用的技巧包括-</p>
+              <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
 <ul>
-<li><strong>Guided Anchoring</strong></li>
-<li><strong>Bag of Tricks</strong></li>
-<li><strong>Additional IOU LOSS</strong></li>
+<li><a href="#concepts">Concepts</a></li>
+<li><a href="#some-definitions">Some definitions</a>
+<ul>
+<li>
+<ul>
+<li><a href="#boundary-coordinates">Boundary coordinates</a></li>
+<li><a href="#center-size-coordinates">Center-Size coordinates</a></li>
+<li><a href="#jaccard-index">Jaccard Index</a></li>
+<li><a href="#multibox">Multibox</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#single-shot-detector-ssd">Single Shot Detector(SSD)</a>
+<ul>
+<li>
+<ul>
+<li><a href="#base-convolutions-part-1">Base Convolutions – part 1</a></li>
+<li><a href="#fc-convolutional-layer">FC-&gt; Convolutional Layer</a></li>
+<li><a href="#base-convolutions-part2">Base Convolutions - part2</a></li>
+<li><a href="#auxiliary-convolutions">Auxiliary Convolutions</a></li>
+<li><a href="#a-detour">A detour</a>
+<ul>
+<li><a href="#priors">Priors</a></li>
+<li><a href="#visualizing-priors">Visualizing Priors</a></li>
+<li><a href="#prediction-vs-priors">Prediction vs Priors</a></li>
+</ul></li>
+<li><a href="#prediction-convulutions">Prediction convulutions</a></li>
+<li><a href="#multibox-loss">Multibox loss</a>
+<ul>
+<li><a href="#matching-predictions-to-ground-truths">Matching predictions to ground truths</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
-<h3 id="asff">自适应特征融合（ASFF)</h3>
-<p>为了更加充分的利用高层特征的语义信息和底层特征的细粒度特征，很多网络都会采用FPN的方式输出多层特征，但是无论是类似于YOLOv3还是RetinaNet，它们都多用concatenation或者element-wise这种直接衔接或者相加的方式，论文认为这样并不能充分的利用不同尺度的特征，所以提出了Adaptively Spatial Feature Fusion（自适应特征融合方式).其结构如下：
-<img src="./img/asff.png" alt=""></p>
-<p>绿色框描述了如何将特征融合，其中 $$X^1$$ ,$$X^2$$,$$X^3$$分别来自level1,level2,level3这三个层的特征。然后level1，levlel2,level3这三个层的特征分别乘上权重参数$$a^3$$,$$b^3$$,$$r^3$$并求和。</p>
-<p>因此这里是相加的操作，所以需要加的时候必须保证leve1，level2，level3输出的特征相同，且通道数也要相同，所以需要对不同的特征层做上采样或者下采样并调整通道数来满足条件。对于需要上采样的层，如想得到ASFF3，需要将level1的特征图调整到和level3的特征图尺寸一致，采用的方式是先通过卷积调整到和level3通道数一致，再用插值的方式将尺寸调整到一致。而对于需要下采样的层，比如想得到ASFF1，对于level2的特征图到level1的特征图只需要用一个并且的卷积就OK了，如果是level3的特征图到level1的特征图则需要在卷积的基础上再加上一个的最大池化层。</p>
-<h3 id="asff-1">ASFF的可解释性</h3>
-<p>论文通过梯度和反向传播来解释为什么ASFF会有效。论文以YOLOV3为例，加入FPN后通过链式法则我们可以知道反向传播时候的梯度计算公式为：</p>
-<h3 id="heading-1">实验结果</h3>
-<p>展示了ASFF相比于concat和sum方式比较的结果：
-<img src="./img/result1.png" alt="">
-接着作者又对ASFF做了可视化分析：
-<img src="./img/result2.png" alt="">
-可视化的结果进一步解释了ASFF的有效性。比如对于斑马的检测，可以看到斑马实际上是在level1这个特征图上被检测到的（响应越大，heatmap越红），并且观察level1这一层的a,b,r的权重可以发现，对于图中斑马这种大目标更容易被高层的特征捕捉到，因为对于大物体我们需要更大的感受野和高级语义特征。而对于下面的羊群的检测来讲，可以看到羊更多的是被level2和level3检测到，这也说明了对于小物体，我们更需要底层特征中的细粒度特征来辨别.</p>
-<h3 id="heading-2">参考</h3>
+</nav>
+
+<h1 id="concepts">Concepts</h1>
+
 <ul>
-<li>Guided Anchoring：Jiaqi Wang, Kai Chen, Shuo Yang, Chen Change Loy, andDahua Lin. Region proposal by guided anchoring. InCVPR,2019.</li>
-<li><a href="https://arxiv.org/pdf/1911.09516.pdf">https://arxiv.org/pdf/1911.09516.pdf</a></li>
-<li><a href="https://arxiv.org/abs/1902.04103">https://arxiv.org/abs/1902.04103</a></li>
-<li><a href="https://blog.csdn.net/watermelon1123/article/details/103277773">https://blog.csdn.net/watermelon1123/article/details/103277773</a></li>
+<li><strong>Object Detection</strong>: 检测目标的类型和种类</li>
+<li><strong>Single-Shot Dection</strong>: 早期的目标检测工程由两个不同的步骤组成：a region proposal network检测出目标的位置，分类器在proposed regions中检测出目标的类型。但是很耗费算力，不能实时检测。而Single-shot模型将这两个步骤压缩为一个步骤，因此大大提高了检测速度和方便硬件部署。</li>
+<li><strong>Multiscale Featur Maps</strong>: 在图像分类任务中，我们是基于最后的卷积特征图来进行预测的。在目标检测中，中间层次的特征图也是十分有用的，因为它们表示了原始图片的各个尺度。因此，一个固定大小的filter在不同尺度的特征图上能够检测出不同大小的objection。</li>
+<li><strong>Priors</strong>: 定义在特定的特征图上的预先计算好的boxes，它们有特定的尺度。被选出来能够更好地匹配图像的bounding boxes.</li>
+<li><strong>Multibox</strong>: 将预测物体的bounding box作为回归问题，检测到的物体的坐标回归到ground truth坐标。此外，对于不同的类别都会根据box产生相应的分数。Priors是一个很好的起点，因为它们是根据ground truths构建的。因此，将会有和priors一样多的先验框，它们大多数将不会包含objection</li>
+<li><strong>Hard Negative Mining</strong>: 只挖掘模型很难识别的负样本。因为很多先验框并不包含objection,这样做有利于正负样本的均衡。</li>
+
+<li><p><strong>Non-Maximum Suppression</strong>:检测同一个物体，将会有许多框重叠在一起。NMS就是通过抑制除了最大分数意外的所有预测来移除掉冗余的。</p>
+
+<h1 id="some-definitions">Some definitions</h1>
+
+<h3 id="boundary-coordinates">Boundary coordinates</h3>
+
+<p>最显然的方式是通过像素坐标<code>x</code>,<code>y</code>来表示objection的边界
+<img src="https://img.laoooo.cn:88/2020/03/25/a128c361b7c88.png" alt="" />
+但是如果我们不知道图像的实际尺寸的话这就行不通了。所以更好地方法是通过小数形式来表示。这样坐标的尺寸是不变化的，在所有图像上的boxes有同样的测量尺度。
+<img src="https://img.laoooo.cn:88/2020/03/25/780d527012012.png" alt="" /></p>
+
+<h3 id="center-size-coordinates">Center-Size coordinates</h3>
+
+<p>能够表现出box的坐标和尺度
+<img src="https://img.laoooo.cn:88/2020/03/26/e3debf2d3e536.png" alt="cs.PNG" /></p>
+
+<h3 id="jaccard-index">Jaccard Index</h3>
+
+<p>算出两个box的重叠程度
+<img src="https://img.laoooo.cn:88/2020/03/25/4bd66530db327.jpg" alt="" /></p>
+
+<h3 id="multibox">Multibox</h3></li>
+
+<li><p>可能包含或者不包含对象box的坐标。这是一个回归任务</p></li>
+
+<li><p>box中各种对象类型的得分，这是一个分类任务</p>
+
+<h1 id="single-shot-detector-ssd">Single Shot Detector(SSD)</h1>
+
+<p>SSD是一个纯粹的CNN，主要由三部分组成：</p></li>
+
+<li><p><strong>Base convolutions</strong>来自已有的图像分类框架，提供初步的特征图</p></li>
+
+<li><p><strong>Auxiliary convolutions</strong>添加到base network之上，提供更高层次的特征图</p></li>
+
+<li><p><strong>Prediction convulitions</strong>定位和识别objection</p></li>
 </ul>
 
+<h3 id="base-convolutions-part-1">Base Convolutions – part 1</h3>
+
+<p>采用VGG16做基础模型，首先VGG16是在ILSVRC CLS-LOC数据集预训练.然后做出相应的改变来适应本任务。
+1. 输入图像尺寸为<code>300, 300</code>
+2. 将池化层pool5由原来的stride=2的2X2变成stride=1的3x3,这样特征图尺寸不再减半
+3. 不再使用全连接层，抛弃fc8,将fc6和fc7转变为卷积层conv6和conv7
+<img src="https://img.laoooo.cn:88/2020/03/25/eae684b0d8173.png" alt="" /></p>
+
+<h3 id="fc-convolutional-layer">FC-&gt; Convolutional Layer</h3>
+
+<p>首先不能对特征图直接地进行全连接操作，需要先将特征图拉伸成1D。灰色的向量表示的是全连接层的参数。
+<img src="https://img.laoooo.cn:88/2020/03/25/123255553b43f.jpg" alt="" />
+如果用卷积层产生这两个输出:
+<img src="https://img.laoooo.cn:88/2020/03/25/8a4b360b234ea.jpg" alt="" />
+所以可以看到这两个结果是相同的。那么一个<code>H,W,I</code>的图像，全连接操作输出为<code>N</code>等同于和同样大小，输出为<code>N</code>的kernel做卷积操作
+<img src="https://img.laoooo.cn:88/2020/03/26/4251716a70029.jpg" alt="fcconv4.jpg" /></p>
+
+<h3 id="base-convolutions-part2">Base Convolutions - part2</h3>
+
+<p>我们VGG-16的fc6和fc7转变为conv6(<code>1024个filters,每个维度为3，3,512</code>),conv7(<code>1024个filters,维度为1，1，1024</code>)，然后是Dilation Conv(没理解)。修改后的VGG-16为：
+<img src="https://img.laoooo.cn:88/2020/03/25/f688ae5f50400.png" alt="" /></p>
+
+<h3 id="auxiliary-convolutions">Auxiliary Convolutions</h3>
+
+<p>增加Auxiliary Convolutional Layers, 共四个卷积块，每个卷积块有两层。每次卷积都会让featrue map变得更小。
+<img src="https://img.laoooo.cn:88/2020/03/25/7ec340c397a18.jpg" alt="" /></p>
+
+<h3 id="a-detour">A detour</h3>
+
+<p>我们预测物体的位置和类别，但是是以什么形式表现出来的呢？因此我们先来简绍priors</p>
+
+<h4 id="priors">Priors</h4>
+
+<p>先验框根据数据集中的ground truth的大小和形状是提前设置好，预测框则以先验框为基准不断调节变换。先验框得设置，作者指出来一下几点：
+- 先验框被应用<code>conv4_3, conv7, conv8_2, conv9_2, conv10_2, conv11_2</code>,高低层次的feature maps
+- 如果先验框的尺度是s, 那它的面积等于以s为边的正方形。所有feature map都有一个比列为1:1的extra prior，其尺度为当前尺度和下一个feature map尺度的几何平均值。都有长宽比为1:1, 2:1, 1:2的先验框。更大的feature map有更小的尺度，一次更加适合检测更小的物体
+- feature map的每个位置都会有不同长宽比的先验框。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Feature Map From</th>
+<th align="center">Feature Map Dimensions</th>
+<th align="center">Prior Scale</th>
+<th align="center">Aspect Ratios</th>
+<th align="center">Number of Priors per Position</th>
+<th align="center">Total Number of Priors on this Feature Map</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><code>conv4_3</code></td>
+<td align="center">38, 38</td>
+<td align="center">0.1</td>
+<td align="center">1:1, 2:1, 1:2 + an extra prior</td>
+<td align="center">4</td>
+<td align="center">5776</td>
+</tr>
+
+<tr>
+<td align="center"><code>conv7</code></td>
+<td align="center">19, 19</td>
+<td align="center">0.2</td>
+<td align="center">1:1, 2:1, 1:2, 3:1, 1:3 + an extra prior</td>
+<td align="center">6</td>
+<td align="center">2166</td>
+</tr>
+
+<tr>
+<td align="center"><code>conv8_2</code></td>
+<td align="center">10, 10</td>
+<td align="center">0.375</td>
+<td align="center">1:1, 2:1, 1:2, 3:1, 1:3 + an extra prior</td>
+<td align="center">6</td>
+<td align="center">600</td>
+</tr>
+
+<tr>
+<td align="center"><code>conv9_2</code></td>
+<td align="center">5, 5</td>
+<td align="center">0.55</td>
+<td align="center">1:1, 2:1, 1:2, 3:1, 1:3 + an extra prior</td>
+<td align="center">6</td>
+<td align="center">150</td>
+</tr>
+
+<tr>
+<td align="center"><code>conv10_2</code></td>
+<td align="center">3,  3</td>
+<td align="center">0.725</td>
+<td align="center">1:1, 2:1, 1:2 + an extra prior</td>
+<td align="center">4</td>
+<td align="center">36</td>
+</tr>
+
+<tr>
+<td align="center"><code>conv11_2</code></td>
+<td align="center">1, 1</td>
+<td align="center">0.9</td>
+<td align="center">1:1, 2:1, 1:2 + an extra prior</td>
+<td align="center">4</td>
+<td align="center">4</td>
+</tr>
+
+<tr>
+<td align="center"><strong>Grand Total</strong></td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center"><strong>8732 priors</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="visualizing-priors">Visualizing Priors</h4>
+
+<p>先验框的w, h可通过以下公式算出：
+$$w \cdot h=s^2$$
+$$ \frac{w}{h} = a$$
+$$w = s \cdot\sqrt{a} $$
+$$h = \frac{s}{\sqrt{a}} $$
+下图展示了<code>conv9_2</code>中心的先验框
+<img src="https://img.laoooo.cn:88/2020/03/25/4fd1ea82ccf36.jpg" alt="" />
+<img src="https://img.laoooo.cn:88/2020/03/25/33fb138ed9174.jpg" alt="" /></p>
+
+<h4 id="prediction-vs-priors">Prediction vs Priors</h4>
+
+<p>先验框和预测框会有偏离，那么我们如何调整和评估这个差值呢？
+<img src="https://img.laoooo.cn:88/2020/03/26/f7aaa0119c0a0.png" alt="ecs1.PNG" />
+Then-
+<img src="https://img.laoooo.cn:88/2020/03/26/49e8e66a36f2c.png" alt="ecs2.PNG" />
+将使用$g_{c<em>x}$, $g</em>{c_y}$,$g_w$, $g_h$用作边界框回归</p>
+
+<h3 id="prediction-convulutions">Prediction convulutions</h3>
+
+<p>对于在特征图每个位置的先验框，我们想得到：
+- bounding box的四个偏移量值
+- bounding box的<code>n_classed</code>分数， <code>n_classed</code>是物体的总共类别，<strong>背景这个类别也被包含在其中</strong></p>
+
+<p>所以我们为这些特征图设置了两个卷积层：
+- 位置预测卷积层，核为3x3，padding和stride为1,4个filters
+- 类预测卷积层，核为3x3,padding和stride为1，<code>n_class</code>filters
+<img src="https://img.laoooo.cn:88/2020/03/25/2e4fc7d580f98.jpg" alt="" /></p>
+
+<p>以<code>conv9_2</code>为例，展示在prediction convulition发生的:</p>
+
+<p><img src="https://img.laoooo.cn:88/2020/03/25/2fb0c10236542.jpg" alt="" />
+<img src="https://img.laoooo.cn:88/2020/03/25/f3969c35c69ba.jpg" alt="" />
+<img src="https://img.laoooo.cn:88/2020/03/25/30ed3f7a48e42.jpg" alt="" />
+也就是说从conv9_2得到的位置特征图和类别特征图分别包含每个ceil的六个先验框的偏移量和类别分数，将其reshape成更加明显的形式：
+<img src="https://img.laoooo.cn:88/2020/03/25/3e6b04034f071.jpg" alt="" />
+我们一共有8732个先验框，因此预测阶段最后的输出有8732x4个偏移量，8732x3的类的分数</p>
+
+<h3 id="multibox-loss">Multibox loss</h3>
+
+<h4 id="matching-predictions-to-ground-truths">Matching predictions to ground truths</h4>
+
+<ul>
+<li>如果先验框的iou小于0.5，则为负匹配；如果大于0.5则为正匹配</li>
+<li>将8732个先验框和每一个ground truth匹配</li>
+</ul>
+
+<p>为了方便，这张图只展示七个先验框，三个ground trouth:</p>
+
+<p><img src="https://img.laoooo.cn:88/2020/03/25/469483802a639.png" alt="" /></p>
+
+<p>然后按照前面的步骤会产生如下结果：</p>
+
+<p><img src="https://img.laoooo.cn:88/2020/03/25/c48c4831c5618.jpg" alt="" /></p>
               
             </div>
           </div>
@@ -308,7 +516,7 @@
                     
   <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/ssd/">SSD</a>
 
-  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/single-one-shot/">Single-one shot</a>
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/single-one-shot/">single-one shot</a>
 
                   </div>
                 
@@ -321,11 +529,7 @@
           
             <li class="post-action">
               
-<<<<<<< HEAD
                 <a class="post-action-btn btn btn--disabled">
-=======
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/01/test/" data-tooltip="Test">
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -333,7 +537,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/03/cssvalue/" data-tooltip="CssValue">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -360,7 +564,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -369,8 +573,6 @@
   
 </div>
 
-<<<<<<< HEAD
-=======
               <span id="/2020/03/ssd/" class="leancloud_visitors" data-flag-title="SSD">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
@@ -391,7 +593,6 @@
                   visitor: 'true'
                 });
               </script>
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
             
               
                 <div id="disqus_thread">
@@ -416,11 +617,7 @@
           
             <li class="post-action">
               
-<<<<<<< HEAD
                 <a class="post-action-btn btn btn--disabled">
-=======
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/01/test/" data-tooltip="Test">
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -428,7 +625,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/03/cssvalue/" data-tooltip="CssValue">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -455,7 +652,7 @@
       
       <li class="post-action">
         
-          <a class="post-action-btn btn btn--default" href="#">
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
         
           <i class="fa fa-list"></i>
         </a>
@@ -568,11 +765,7 @@ $(document).ready(function() {
             return;
           }
           var d = document, s = d.createElement('script');
-<<<<<<< HEAD
           var disqus_shortname = 'valine';
-=======
-          var disqus_shortname = 'hugo-tranquilpeak-theme';
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
           s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
           s.setAttribute('data-timestamp', +new Date());

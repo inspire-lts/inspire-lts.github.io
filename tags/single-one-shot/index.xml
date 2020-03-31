@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Single-one shot on 天天睡大觉</title>
+    <title>single-one shot on 天天睡大觉</title>
     <link>https://inspire-lts.github.io/tags/single-one-shot/</link>
-    <description>Recent content in Single-one shot on 天天睡大觉</description>
+    <description>Recent content in single-one shot on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2020 17:12:01 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 23:56:12 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/tags/single-one-shot/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,14 +14,10 @@
     <item>
       <title>SSD</title>
       <link>https://inspire-lts.github.io/2020/03/ssd/</link>
-      <pubDate>Wed, 25 Mar 2020 17:12:01 +0800</pubDate>
+      <pubDate>Wed, 25 Mar 2020 23:56:12 +0800</pubDate>
       
       <guid>https://inspire-lts.github.io/2020/03/ssd/</guid>
-<<<<<<< HEAD
-      <description>ASFF论文简介</description>
-=======
-      <description>ssd论文简介</description>
->>>>>>> 11587f361b66a31388beb64051d417921102eb2b
+      <description></description>
     </item>
     
   </channel>

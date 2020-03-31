@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>天天睡大觉</title>
-    <link>https://inspire-lts.github.io/</link>
-    <description>Recent content on 天天睡大觉</description>
+    <title>linux on 天天睡大觉</title>
+    <link>https://inspire-lts.github.io/categories/linux/</link>
+    <description>Recent content in linux on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Mar 2020 16:50:45 +0800</lastBuildDate>
     
-	<atom:link href="https://inspire-lts.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://inspire-lts.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
