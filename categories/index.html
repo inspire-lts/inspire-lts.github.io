@@ -20,6 +20,25 @@
       
     
   
+    
+    
+      
+      
+        
+        
+        
+        
+        
+          
+          
+          
+        
+        
+        
+      
+      
+    
+  
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -87,6 +106,41 @@
       
     
     
+    <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
   </head>
 
   <body>
@@ -231,6 +285,12 @@
               
                 
                 <div>
+                  <a href="#posts-list-deep-learning" class="category-anchor" data-category="deep learning" data-parent-categories="">deep learning</a>
+                  
+                </div>
+              
+                
+                <div>
                   <a href="#posts-list-linux" class="category-anchor" data-category="linux" data-parent-categories="">linux</a>
                   
                 </div>
@@ -239,6 +299,23 @@
           </section>
           <section class="boxes">
             
+              
+                
+                <div id="posts-list-deep-learning" class="archive box" data-category="deep learning" data-parent-categories="" style="display: block;">
+                  <h4 class="archive-title text-xlarge">
+                    <a class="link-unstyled" href="deep-learning">deep learning (1)</a>
+                  </h4>
+                  <ul class="archive-posts">
+                    
+                      <li class="archive-post">
+                        <a class="archive-post-title" href="https://inspire-lts.github.io/2020/04/transferlearning/">TransferLearning</a><span class="archive-post-date"> - 
+  四月 14, 2020
+</span>
+                      </li>
+                    
+                    
+                  </ul>
+                </div>
               
                 
                 <div id="posts-list-linux" class="archive box" data-category="linux" data-parent-categories="" style="display: block;">
