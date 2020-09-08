@@ -4,19 +4,54 @@
   
   <url>
     <loc>https://inspire-lts.github.io/categories/</loc>
-    <lastmod>2020-04-14T15:58:27+08:00</lastmod>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://inspire-lts.github.io/post/</loc>
-    <lastmod>2020-04-14T15:58:27+08:00</lastmod>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://inspire-lts.github.io/tags/</loc>
-    <lastmod>2020-04-14T15:58:27+08:00</lastmod>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/2020/09/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%AF%94%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%9B%B4%E5%8A%A0%E5%8F%97%E6%AC%A2%E8%BF%8E/</loc>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/</loc>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2020-09-08T11:02:30+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -39,12 +74,6 @@
   
   <url>
     <loc>https://inspire-lts.github.io/tags/transfer-learning/</loc>
-    <lastmod>2020-04-14T15:58:27+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://inspire-lts.github.io/</loc>
     <lastmod>2020-04-14T15:58:27+08:00</lastmod>
     <priority>0</priority>
   </url>

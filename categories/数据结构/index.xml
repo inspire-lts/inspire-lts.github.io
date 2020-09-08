@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>天天睡大觉</title>
-    <link>https://inspire-lts.github.io/</link>
-    <description>Recent content on 天天睡大觉</description>
+    <title>数据结构 on 天天睡大觉</title>
+    <link>https://inspire-lts.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 08 Sep 2020 11:02:30 +0800</lastBuildDate>
     
-	<atom:link href="https://inspire-lts.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://inspire-lts.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,24 +17,6 @@
       <pubDate>Tue, 08 Sep 2020 11:02:30 +0800</pubDate>
       
       <guid>https://inspire-lts.github.io/2020/09/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%AF%94%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%9B%B4%E5%8A%A0%E5%8F%97%E6%AC%A2%E8%BF%8E/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>TransferLearning</title>
-      <link>https://inspire-lts.github.io/2020/04/transferlearning/</link>
-      <pubDate>Tue, 14 Apr 2020 15:58:27 +0800</pubDate>
-      
-      <guid>https://inspire-lts.github.io/2020/04/transferlearning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LinuxFile</title>
-      <link>https://inspire-lts.github.io/2020/03/linuxfile/</link>
-      <pubDate>Mon, 30 Mar 2020 16:50:45 +0800</pubDate>
-      
-      <guid>https://inspire-lts.github.io/2020/03/linuxfile/</guid>
       <description></description>
     </item>
     
