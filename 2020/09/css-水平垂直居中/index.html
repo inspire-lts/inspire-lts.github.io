@@ -13,34 +13,30 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用快排的思想在O(n)内查找第K大元素">
-<meta name="twitter:title" content="如何用快排的思想在O(n)内查找第K大元素">
-<meta property="og:url" content="https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/">
-<meta property="twitter:url" content="https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/">
+<meta property="og:title" content="CSS 水平垂直居中">
+<meta name="twitter:title" content="CSS 水平垂直居中">
+<meta property="og:url" content="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">
+<meta property="twitter:url" content="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">
 <meta property="og:site_name" content="天天睡大觉">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2020-09-13T09:55:45">
+    <meta property="article:published_time" content="2020-09-13T14:21:16">
   
   
-    <meta property="article:modified_time" content="2020-09-13T09:55:45">
+    <meta property="article:modified_time" content="2020-09-13T14:21:16">
   
-  
-  
-    
-      <meta property="article:section" content="数据结构">
-    
   
   
     
-      <meta property="article:tag" content="快排">
+      <meta property="article:section" content="CSS">
     
-      <meta property="article:tag" content="归并排序">
+  
+  
     
-      <meta property="article:tag" content="topK">
+      <meta property="article:tag" content="水平垂直居中">
     
   
 
@@ -61,14 +57,14 @@
   <meta property="twitter:image" content="https://inspire-lts.github.io/images/lts.jpg">
 
 
-    <title>如何用快排的思想在O(n)内查找第K大元素</title>
+    <title>CSS 水平垂直居中</title>
 
     <link rel="icon" href="https://inspire-lts.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/">
+    <link rel="canonical" href="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -254,13 +250,13 @@ code.has-jax {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      如何用快排的思想在O(n)内查找第K大元素
+      CSS 水平垂直居中
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-13T09:55:45&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-09-13T14:21:16&#43;08:00">
         
   九月 13, 2020
 
@@ -271,7 +267,7 @@ code.has-jax {
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://inspire-lts.github.io/categories/%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84">数据结构</a>
+      <a class="category-link" href="https://inspire-lts.github.io/categories/css">CSS</a>
     
   
 
@@ -287,62 +283,30 @@ code.has-jax {
 <ul>
 <li>
 <ul>
-<li><a href="#归并排序">归并排序</a></li>
-<li><a href="#快速排序">快速排序</a></li>
-<li><a href="#总结">总结</a></li>
-<li><a href="#扩展-topk问题">扩展 =&gt; topK问题</a></li>
+<li><a href="#提前准备">提前准备</a></li>
+<li><a href="#flex方案">Flex方案</a></li>
+<li><a href="#grid方案">Grid方案</a></li>
+<li><a href="#absolute-transform">absolute + transform</a></li>
+<li><a href="#absolute-cal">absolute + cal</a></li>
+<li><a href="#absolute-负margin">absolute + 负margin</a></li>
+<li><a href="#absolute-margin-auto">absolute + margin:auto</a></li>
+<li><a href="#转载">转载</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 
-<h3 id="归并排序">归并排序</h3>
+<h3 id="提前准备">提前准备</h3>
 
-<ol>
-<li><p>算法实现
-<img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913100807.png" alt="" /></p></li>
+<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913144137.png" alt="" /></p>
 
-<li><p>算法思想</p></li>
-</ol>
+<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913144214.png" alt="" /></p>
 
-<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913101616.png" alt="" /></p>
+<h3 id="flex方案">Flex方案</h3>
 
-<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/mergeSort.gif" alt="" /></p>
-
-<h3 id="快速排序">快速排序</h3>
-
-<ol>
-<li><p>算法实现
-<img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913104118.png" alt="" /></p></li>
-
-<li><p>算法思想</p></li>
-</ol>
-
-<ul>
-<li>从数列中挑选出一个元素，称为“基准”(pivot)</li>
-<li>重新排序数列，所有元素比基准值小的在其前面，所有元素比基准值大的在其后面。在这个分区退出之后该基准就处于数列的中间位置。这个称为分区(partition)操作</li>
-<li>递归的把小于基准值元素的子数列和大于基准值的子数列排序</li>
-</ul>
-
-<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/quickSort.gif" alt="" /></p>
-
-<h3 id="总结">总结</h3>
-
-<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913110358.png" alt="" /></p>
-
-<h3 id="扩展-topk问题">扩展 =&gt; topK问题</h3>
-
-<p>在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。（leetcode 215)</p>
-
-<p><strong>思路</strong></p>
-
-<ul>
-<li>快速排序在每次划分后都可以确定一个元素的最终位置，将n-k看作piovt</li>
-</ul>
+<p><strong>优点</strong>:不需要固定居中元素的宽高</p>
 
 
-  
-    
   
   
   
@@ -352,74 +316,224 @@ code.has-jax {
 <figure class="highlight  language-">
   <figcaption>
     
-      <span>topK.js</span>
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+.outer {
+    dispaly: flex;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="grid方案">Grid方案</h3>
+
+<p><strong>优点</strong>: 不需要固定居中元素的宽高</p>
+
+
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
     
   </figcaption>
   <table>
     <tbody>
       <tr>
         <td class="gutter">
-          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre>
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre>
         </td>
         <td class="code">
           <pre class="code-highlight language-"><code class="">
-const findKthLargest = (nums, k) =&gt; {
-  const n = nums.length;
-
-  const quick = (l, r) =&gt; {
-    if (l &gt; r) return;
-    let random = Math.floor(Math.random() * (r - l &#43; 1)) &#43; l; // 随机选取一个index
-    swap(nums, random, r); // 将它和位置r的元素交换，让 nums[r] 作为 pivot 元素
-    /**
-     * 我们选定一个 pivot 元素，根据它进行 partition
-     * partition 找出一个位置：它左边的元素都比pivot小，右边的元素都比pivot大
-     * 左边和右边的元素的是未排序的，但 pivotIndex 是确定下来的
-    */
-    let pivotIndex = partition(nums, l, r);
-    /**
-     * 我们希望这个 pivotIndex 正好是 n-k
-     * 如果 n - k 小于 pivotIndex，则在 pivotIndex 的左边继续找
-     * 如果 n - k 大于 pivotIndex，则在 pivotIndex 的右边继续找
-     */
-    if (n - k &lt; pivotIndex) { 
-      quick(l, pivotIndex - 1);
-    } else {
-      quick(pivotIndex &#43; 1, r);
-    }
-    /**
-     * n - k == pivotIndex ，此时 nums 数组被 n-k 分成两部分
-     * 左边元素比 nums[n-k] 小，右边比 nums[n-k] 大，因此 nums[n-k] 就是第K大的元素
-     */
-  };
-
-  quick(0, n - 1); // 让n-k位置的左边都比 nums[n-k] 小，右边都比 nums[n-k] 大
-  return nums[n - k]; 
-};
-
-function partition(nums, left, right) {
-  let pivot = nums[right];             // 最右边的元素作为 pivot 元素
-  let pivotIndex = left;               // pivotIndex 初始为 left
-  for (let i = left; i &lt; right; i&#43;&#43;) { // 逐个考察元素，和 pivot 比较
-    if (nums[i] &lt; pivot) {             // 如果当前元素比 pivot 小
-      swap(nums, i, pivotIndex);       // 将它交换到 pivotIndex 的位置
-      pivotIndex&#43;&#43;;                    
-    }
-  }                                    // 循环结束时，pivotIndex左边都是比pivot小的
-  swap(nums, right, pivotIndex);       // pivotIndex和right交换，更新pivot元素
-  return pivotIndex;                   // 返回 pivotIndex 下标
+.outer {
+    display: grid;
 }
 
-function swap(nums, p, q) {
-  const temp = nums[p];
-  nums[p] = nums[q];
-  nums[q] = temp;
-}
-</code></pre>
+.inner {
+    justify-self: center;
+    align-self: center;
+}</code></pre>
         </td>
       </tr>
     </tbody>
   </table>
 </figure>
+
+<h3 id="absolute-transform">absolute + transform</h3>
+
+<p><strong>优点</strong>: 不需要固定居中元素的宽高</p>
+
+<p>CSS3中新增<strong>transform</strong>，其中<strong>transform</strong>属性是根据元素自身计算的。列如：设置<strong>transform: translateX(-50%);</strong>，元素会向左偏移自身宽度的一半。</p>
+
+
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+.outer {
+    position: relative;
+}
+
+.inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="absolute-cal">absolute + cal</h3>
+
+<p><strong>缺点</strong>：需要固定居中元素的宽高
+
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+.outer {
+    position: relative;
+}
+
+.inner {
+    position: absolute;
+    left: cal(50% - 50px)
+    top: clac(50% - 50px)
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<h3 id="absolute-负margin">absolute + 负margin</h3>
+
+<p><strong>缺点</strong>：需要固定居中元素的宽高
+
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+.outer {
+    position: relative;
+}
+
+.inner {
+    positon: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure></p>
+
+<h3 id="absolute-margin-auto">absolute + margin:auto</h3>
+
+
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+.outer {
+    position: relative;
+}
+
+.inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20200913152059.png" alt="" /></p>
+
+<h3 id="转载">转载</h3>
+
+<p><em><a href="https://liuyib.github.io/2020/04/07/css-h-and-v-center/#table-cell-vertical-align">https://liuyib.github.io/2020/04/07/css-h-and-v-center/#table-cell-vertical-align</a></em></p>
               
             </div>
           </div>
@@ -431,11 +545,7 @@ function swap(nums, p, q) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/%E5%BF%AB%E6%8E%92/">快排</a>
-
-  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">归并排序</a>
-
-  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/topk/">topK</a>
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/">水平垂直居中</a>
 
                   </div>
                 
@@ -448,7 +558,7 @@ function swap(nums, p, q) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%AF%94%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%9B%B4%E5%8A%A0%E5%8F%97%E6%AC%A2%E8%BF%8E/" data-tooltip="为什么插入排序比冒泡排序更加受欢迎？">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/" data-tooltip="如何用快排的思想在O(n)内查找第K大元素">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -456,7 +566,7 @@ function swap(nums, p, q) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" data-tooltip="CSS 水平垂直居中">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -492,7 +602,7 @@ function swap(nums, p, q) {
   
 </div>
 
-              <span id="/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/" class="leancloud_visitors" data-flag-title="如何用快排的思想在O(n)内查找第K大元素">
+              <span id="/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" class="leancloud_visitors" data-flag-title="CSS 水平垂直居中">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -536,7 +646,7 @@ function swap(nums, p, q) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%AF%94%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E6%9B%B4%E5%8A%A0%E5%8F%97%E6%AC%A2%E8%BF%8E/" data-tooltip="为什么插入排序比冒泡排序更加受欢迎？">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/" data-tooltip="如何用快排的思想在O(n)内查找第K大元素">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -544,7 +654,7 @@ function swap(nums, p, q) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" data-tooltip="CSS 水平垂直居中">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -672,9 +782,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/09\/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0\/';
+          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/09\/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD\/';
           
-            this.page.identifier = '\/2020\/09\/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0\/'
+            this.page.identifier = '\/2020\/09\/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD\/'
           
         };
         (function() {
