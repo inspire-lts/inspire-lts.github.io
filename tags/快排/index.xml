@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>快排 on 天天睡大觉</title>
+    <link>https://inspire-lts.github.io/tags/%E5%BF%AB%E6%8E%92/</link>
+    <description>Recent content in 快排 on 天天睡大觉</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Sep 2020 09:55:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://inspire-lts.github.io/tags/%E5%BF%AB%E6%8E%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何用快排的思想在O(n)内查找第K大元素</title>
+      <link>https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/</link>
+      <pubDate>Sun, 13 Sep 2020 09:55:45 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/2020/09/%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8E%92%E7%9A%84%E6%80%9D%E6%83%B3%E5%9C%A8on%E5%86%85%E6%9F%A5%E6%89%BE%E7%AC%ACk%E5%A4%A7%E5%85%83%E7%B4%A0/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
