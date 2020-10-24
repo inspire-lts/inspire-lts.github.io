@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Sep 2020 14:21:16 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2020 16:08:22 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>js</title>
+      <link>https://inspire-lts.github.io/categories/js/</link>
+      <pubDate>Sat, 24 Oct 2020 16:08:22 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/categories/js/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CSS</title>

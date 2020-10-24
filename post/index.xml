@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Sep 2020 14:21:16 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2020 16:08:22 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>手写promise</title>
+      <link>https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/</link>
+      <pubDate>Sat, 24 Oct 2020 16:08:22 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CSS 水平垂直居中</title>

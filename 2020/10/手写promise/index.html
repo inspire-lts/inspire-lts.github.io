@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="阿汤">
+<meta name="keywords" content="tech, java, js, css, 深度学习, 随笔">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手写promise">
+<meta name="twitter:title" content="手写promise">
+<meta property="og:url" content="https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/">
+<meta property="twitter:url" content="https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/">
+<meta property="og:site_name" content="天天睡大觉">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2020-10-24T16:08:22">
+  
+  
+    <meta property="article:modified_time" content="2020-10-24T16:08:22">
+  
+  
+  
+    
+      <meta property="article:section" content="js">
+    
+  
+  
+    
+      <meta property="article:tag" content="手写">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://inspire-lts.github.io/images/lts.jpg">
+  <meta property="twitter:image" content="https://inspire-lts.github.io/images/lts.jpg">
+
+
+    <title>手写promise</title>
+
+    <link rel="icon" href="https://inspire-lts.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://inspire-lts.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+    <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://inspire-lts.github.io/">天天睡大觉</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://inspire-lts.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://inspire-lts.github.io/images/lts.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://inspire-lts.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://inspire-lts.github.io/images/lts.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">阿汤</h4>
+        
+          <h5 class="sidebar-profile-bio">步履不停</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/inspire-lts" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://inspire-lts.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+  <iframe frameborder="no"  marginwidth="0" marginheight="0" width=250 height=86 src="//music.163.com/outchain/player?type=2&id=757761&auto=1&height=66"></iframe>
+</nav>
+
+      
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      手写promise
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-10-24T16:08:22&#43;08:00">
+        
+  十月 24, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://inspire-lts.github.io/categories/js">js</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <h1 id="table-of-contents">目录</h1><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-初始化">1.初始化</a></li>
+<li><a href="#2-构造函数">2.构造函数</a></li>
+<li><a href="#3-then函数">3.then函数</a>
+<ul>
+<li><a href="#3-1-优化then函数">3.1 优化then函数</a></li>
+</ul></li>
+<li><a href="#4-cath函数">4.cath函数</a></li>
+<li><a href="#5-promise-resolve-promise-reject函数">5.Promise.resolve,Promise.reject函数</a></li>
+<li><a href="#6-promise-race函数">6.Promise.race函数</a></li>
+<li><a href="#7-promise-all函数">7. Promise.all函数</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<h3 id="1-初始化">1.初始化</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+(function (widow){
+
+    const PENDING = &#39;pending&#39;
+    const FULFILLED = &#39;fulfilled&#39;
+    const REJECTED = &#39;rejected&#39;
+
+    function MyPromise(excutor){
+        const self = this
+        self.status = PENDING // 初始状态
+        self.data = undefined // 初始值
+        self.callbacks = []  //待执行的异步回调函数数组
+
+        function resolve(value) {
+
+        }
+
+        function reject(reason) {
+
+        }
+
+        try {
+            excutor(resolve, reject)
+        } catch (error) {
+            reject(error)  // 执行器出错，promise变为失败
+        }
+        
+    }
+
+    MyPromise.prototype.then = function(onResolved, onRejected){
+
+    }
+
+    MyPromise.prototype.catch = function(onRejected){
+
+    }
+
+    MyPromise.resolve = function(value) {
+
+    }
+
+    MyPromise.reject = function(reason){
+
+    }
+
+    MyPromise.all = function(promises){
+
+    }
+
+    MyPromise.race = function(promises){
+
+    }
+
+    window.MyPromise = MyPromise
+})(window)</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="2-构造函数">2.构造函数</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+function MyPromise(excutor){
+        const self = this
+        self.status = PENDING // 初始状态
+        self.data = undefined // 初始值
+        self.callbacks = []  //待执行的异步回调函数数组
+
+        function resolve(value) {
+            // 如果当前状态不是pending，直接结束  防止resolve(2)  resolve(3)这种情况
+            if (self.status !== PENDING) return
+
+            self.status = FULFILLED
+            self.data = value
+
+            // 异步调用所有缓存的待执行的成功回调
+            if (self.callbacks.length) {
+                setTimeout(
+                    self.callbacks.forEach(item =&gt; item.onResolved())
+                )
+            }
+        }
+
+        function reject(reason) {
+            if (self.status !== PENDING) return
+
+            self.status = REJECTED
+            self.data = reason
+
+            // 异步调用素有缓存的失败回调
+            if (self.callbacks.length) {
+                setTimeout(() =&gt; {
+                 self.callbacks.forEach(item =&gt; item.onRejected())
+                });
+            }
+        }
+
+        try {
+            excutor(resolve, reject)
+        } catch (error) {
+            reject(error)  // 执行器出错，promise变为失败
+        }
+        
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="3-then函数">3.then函数</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+    MyPromise.prototype.then = function(onResolved, onRejected){
+
+        const self = this
+
+        // 返回一个新的promise
+        return new MyPromise((resolve, reject) =&gt; {
+            if (this.status === FULFILLED) {
+                // 异步执行成功的回调
+                setTimeout(() =&gt; {
+                    try {
+                        // 根据执行的返回结果来决定新的promise状态
+                        const result = onResolved(self.data)
+                        // 返回promise
+                        if (result instanceof MyPromise){
+                            result.then(
+                                value =&gt; resolve(value),
+                                reason =&gt; reject(reason)
+                            )
+                        } // 返回不是promise
+                        else resolve(result)
+                    } catch (error) {
+                        reject(error) // 抛出错误
+                    }
+                });
+            }
+            else if (self.status === REJECTED) {
+                setTimeout(() =&gt; {
+                    try {
+                        const result = onRejected(self.data)
+                        if (result instanceof MyPromise){
+                            result.then(
+                                value =&gt; resolve(value),
+                                reason =&gt; reject(reason)
+                            )
+                        }
+                        else resolve(result)
+                    } catch (error) {
+                        reject(error)
+                    }   
+                });
+            }
+            else if (self.status === PENDING) {
+                self.callbacks.push({
+                    onResolved() {  // 只是对象中函数的一个名字
+                        try {
+                            const result = onResolved(self.data) // 成功的回调函数
+                            if (result instanceof MyPromise){
+                                result.then(
+                                    value =&gt; resolve(value),
+                                    reason =&gt; reject(reason)
+                                )
+                            }
+                            else resolve(result)
+                        } catch (error) {
+                            reject(error)
+                        }
+                    },
+                    onRejected() {
+                        try {
+                            const result = onRejected(self.data)
+                            if (result instanceof MyPromise){
+                                result.then(
+                                    value =&gt; resolve(value),
+                                    reason =&gt; reject(reason)
+                                )
+                            }
+                            else resolve(result)
+                        } catch (error) {
+                            reject(error)
+                        }
+                    }
+                })
+            }
+        })
+
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<p>注意返回一个新的promise，它的结果是由成功和失败回调函数决定的，尤其要理解回调函数返回的是promise,由这个promise决定新的promise的结果（成功/失败）。</p>
+
+<h4 id="3-1-优化then函数">3.1 优化then函数</h4>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+    MyPromise.prototype.then = function (onResolved, onRejected) {
+        const self = this;
+        onResolved = typeof onRejected === &#39;functon&#39; ? onRejected: value =&gt; value  // 将value向下传递
+        onRejected = typeof onRejected === &#39;function&#39; ? onRejected: reason =&gt; {throw reason}  // 将reason向下传递，防止then只有成功的回调报错
+        return new MyPromise((resolve, reject) =&gt; { // 每次都返回一个新的Promise对象
+            function handle(callback) {
+                /* 
+                    1、返回的Promise的结果是由onResolved/onrejected决定的
+                    2、返回的是Promise对象 (根据执结果决定Promise的返回结果)
+                    3、返回的不是Promise对象 (该值就是Promise的返回结果)
+                    4、抛出异常 异常的值为返回的结果
+                */
+                try {
+                    const result = callback(self.data);
+                    if (reject instanceof MyPromise) {
+                        result.then(value =&gt; {
+                            resolve(value);
+                        }, reason =&gt; {
+                            reject(reason);
+                        })
+                    } else {
+                        resolve(result);
+                    }
+
+                } catch (error) {
+                    reject(error);
+                }
+            }
+            // 首先判断当前状态
+            if (self.status === FULFILLED) {
+                setTimeout(() =&gt; {
+                    handle(onResolved)
+                });
+
+            } else if (self.status === REJECTED) {
+                setTimeout(() =&gt; {
+                    handle(onRejected)
+                });
+
+            } else if (self.status === PENDDING) {
+                self.callbacks.push({
+                    // 保存了包含回调函数调用的函数
+                    onResolved() {
+                        handle(onResolved)
+                    },
+                    onRejected() {
+                        handle(onRejected)
+                    }
+                })
+            }
+        })
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="4-cath函数">4.cath函数</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+    MyPromise.prototype.catch = function(onRejected){
+        return this.then(undefined, onRejected)
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="5-promise-resolve-promise-reject函数">5.Promise.resolve,Promise.reject函数</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+    // 用来返回一个指定value的成功的promise
+    // value可能是一般值，也可能是promise对象
+    MyPromise.resolve = function(value) {
+        return new MyPromise((resolve, reject) =&gt; {
+            // 如果value是一个promise,最终返回的新的promise由这个promise决定
+            if (value instanceof MyPromise) value.then(resolve, reject)
+            else resolve(value)  // value不是promise,返回的是成功的promise,成功的值是value
+        })
+    }
+
+    // 返回以指定reason的失败的promise
+    MyPromise.reject = function(reason){
+        return new MyPromise((value, reject) =&gt; reject(reason))
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="6-promise-race函数">6.Promise.race函数</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+    MyPromise.race = function(promises){
+        return new MyPromise((resolve, reject) =&gt; {
+            //遍历所有promise, 返回的promise由第一个完成p决定
+            promises.forEach(p =&gt; p.then(resolve, reject))
+        })
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+
+<h3 id="7-promise-all函数">7. Promise.all函数</h3>
+
+
+  
+    
+  
+  
+  
+  
+
+
+<figure class="highlight  language-">
+  <figcaption>
+    
+      <span>promise.js</span>
+    
+  </figcaption>
+  <table>
+    <tbody>
+      <tr>
+        <td class="gutter">
+          <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre>
+        </td>
+        <td class="code">
+          <pre class="code-highlight language-"><code class="">
+    // 返回一个promise，只有数组中的所有promise都成果才成功
+    MyPromise.all = function(promises){
+      return new MyPromise((resolve, reject) =&gt; {
+         let resolvedCount = 0 //已经成功的数量
+         const values = new Array(promises.length)  // 用来保存成功的promise的value值
+         promises.forEach((p, index) =&gt; {
+            p.then(
+               value =&gt; {
+                  resolvedCount&#43;&#43;
+                  values[index] = value // 和放入all中的promise对应
+                  if (resolvedCount === promises.length)  // 都成功了
+                    resolve(values)
+               },
+               reason =&gt; reject(reason)
+            )
+         })
+      })
+    }</code></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/%E6%89%8B%E5%86%99/">手写</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" data-tooltip="CSS 水平垂直居中">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+              <span id="/2020/10/%E6%89%8B%E5%86%99promise/" class="leancloud_visitors" data-flag-title="手写promise">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'hG41ESlOl76S0kghFA5CFaqj-gzGzoHsz',
+                  appKey: 'atcVFCSnomrWiP7DGNI66Hag',
+                  notify: 'false',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: 'support makedown',
+                  visitor: 'true'
+                });
+              </script>
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 阿汤. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" data-tooltip="CSS 水平垂直居中">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#table-of-contents">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://inspire-lts.github.io/images/lts.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">阿汤</h4>
+    
+      <div id="about-card-bio">步履不停</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        重庆
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://inspire-lts.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://inspire-lts.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/10\/%E6%89%8B%E5%86%99promise\/';
+          
+            this.page.identifier = '\/2020\/10\/%E6%89%8B%E5%86%99promise\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

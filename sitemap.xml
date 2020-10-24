@@ -3,6 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://inspire-lts.github.io/categories/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/post/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/categories/js/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/tags/%E6%89%8B%E5%86%99/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/</loc>
+    <lastmod>2020-10-24T16:08:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://inspire-lts.github.io/categories/css/</loc>
     <lastmod>2020-09-13T14:21:16+08:00</lastmod>
     <priority>0</priority>
@@ -11,30 +52,6 @@
   <url>
     <loc>https://inspire-lts.github.io/2020/09/css-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</loc>
     <lastmod>2020-09-13T14:21:16+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://inspire-lts.github.io/categories/</loc>
-    <lastmod>2020-09-13T14:21:16+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://inspire-lts.github.io/post/</loc>
-    <lastmod>2020-09-13T14:21:16+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://inspire-lts.github.io/tags/</loc>
-    <lastmod>2020-09-13T14:21:16+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://inspire-lts.github.io/</loc>
-    <lastmod>2020-09-13T14:21:16+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
