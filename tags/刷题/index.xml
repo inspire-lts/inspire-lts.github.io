@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>js on 天天睡大觉</title>
-    <link>https://inspire-lts.github.io/categories/js/</link>
-    <description>Recent content in js on 天天睡大觉</description>
+    <title>刷题 on 天天睡大觉</title>
+    <link>https://inspire-lts.github.io/tags/%E5%88%B7%E9%A2%98/</link>
+    <description>Recent content in 刷题 on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 25 Oct 2020 11:38:20 +0800</lastBuildDate>
     
-	<atom:link href="https://inspire-lts.github.io/categories/js/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://inspire-lts.github.io/tags/%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,11 +21,11 @@
     </item>
     
     <item>
-      <title>手写promise</title>
-      <link>https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/</link>
-      <pubDate>Sat, 24 Oct 2020 16:08:22 +0800</pubDate>
+      <title>数组中重复数字</title>
+      <link>https://inspire-lts.github.io/2020/10/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Sun, 25 Oct 2020 10:48:37 +0800</pubDate>
       
-      <guid>https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/</guid>
+      <guid>https://inspire-lts.github.io/2020/10/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/</guid>
       <description></description>
     </item>
     
