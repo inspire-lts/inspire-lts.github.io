@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数组操作 on 天天睡大觉</title>
+    <link>https://inspire-lts.github.io/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/</link>
+    <description>Recent content in 数组操作 on 天天睡大觉</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Oct 2020 15:29:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://inspire-lts.github.io/tags/%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数组扁平化</title>
+      <link>https://inspire-lts.github.io/2020/10/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/</link>
+      <pubDate>Sun, 25 Oct 2020 15:29:03 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/2020/10/%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
