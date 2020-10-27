@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="阿汤">
-<meta name="keywords" content="tech, java, js, css, 深度学习, 随笔">
+<meta name="keywords" content=", java, js, css, 深度学习, 随笔">
 <meta name="description" content="">
 
 
@@ -23,10 +23,10 @@
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2020-10-25T10:48:37">
+    <meta property="article:published_time" content="2020-10-27T16:21:05">
   
   
-    <meta property="article:modified_time" content="2020-10-25T10:48:37">
+    <meta property="article:modified_time" content="2020-10-27T16:21:05">
   
   
   
@@ -256,9 +256,9 @@ code.has-jax {
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-10-25T10:48:37&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-10-27T16:21:05&#43;08:00">
         
-  十月 25, 2020
+  十月 27, 2020
 
       </time>
     
@@ -283,57 +283,105 @@ code.has-jax {
 <ul>
 <li>
 <ul>
-<li><a href="#1-题目">1.题目</a></li>
-<li><a href="#2-解题">2.解题</a></li>
+<li><a href="#1-用两个栈实现队列">1.用两个栈实现队列</a>
+<ul>
+<li><a href="#1-1-题目描述">1.1 题目描述</a></li>
+<li><a href="#1-2-解题">1.2 解题</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 
-<h3 id="1-题目">1.题目</h3>
+<h3 id="1-用两个栈实现队列">1.用两个栈实现队列</h3>
 
-<pre><code>找出数组中重复的数字。
+<h4 id="1-1-题目描述">1.1 题目描述</h4>
 
-在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。
+<pre><code>用两个栈实现一个队列。
 
-数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。
-
-请找出数组中任意一个重复的数字。
+队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead，
+分别完成在队列尾部插入整数和在队列头部删除整数的功能。
+（若队列中没有元素，deleteHead 操作返回 -1）
 
 示例 1：
 
-* 输入：[2, 3, 1, 0, 2, 5, 3]
-* 输出：2 或 3
+输入：
+[&quot;CQueue&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]
+[[],[3],[],[]]
+输出：[null,null,3,-1]
 
-限制：2 &lt;= n &lt;= 100000
+示例 2：
+
+输入：
+[&quot;CQueue&quot;,&quot;deleteHead&quot;,&quot;appendTail&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]
+[[],[],[5],[2],[],[]]
+输出：[null,-1,null,null,5,2]
+
+提示：
+
+1 &lt;= values &lt;= 10000
+最多会对 appendTail、deleteHead 进行 10000 次调用
 
 来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof
+链接：https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 </code></pre>
 
-<pre><code class="language-js">/**
- * @param {number[]} nums
+<pre><code class="language-js">var CQueue = function() {
+  
+};
+
+/** 
+ * @param {number} value
+ * @return {void}
+ */
+CQueue.prototype.appendTail = function(value) {
+
+};
+
+/**
  * @return {number}
  */
-var findRepeatNumber = function(nums) {
+CQueue.prototype.deleteHead = function() {
 
 };
+
+/**
+ * Your CQueue object will be instantiated and called as such:
+ * var obj = new CQueue()
+ * obj.appendTail(value)
+ * var param_2 = obj.deleteHead()
+ */
 </code></pre>
 
-<h3 id="2-解题">2.解题</h3>
+<h4 id="1-2-解题">1.2 解题</h4>
 
-<p>2.1 sort() + 判断前后</p>
+<pre><code class="language-js"> var CQueue = function() {
+    this.stack1 = []
+    this.stack2 = []
+};
 
-<pre><code class="language-js">var findRepeatNumber = function(nums) {
-  nums.sort((a, b) =&gt; a - b);
-  for (let i = 0; i &lt; nums.length; i++) {
-    if (nums[i + 1] === nums[i]) {
-      return nums[i];
+/** 
+ * @param {number} value
+ * @return {void}
+ */
+CQueue.prototype.appendTail = function(value) {
+    this.stack1.push(value)
+};
+
+/**
+ * @return {number}
+ */
+CQueue.prototype.deleteHead = function() {
+    if(!this.stack2.length){
+        while(this.stack1.length)
+            this.stack2.push(this.stack1.pop())
     }
-  }
+    return this.stack2.pop() || -1
 };
 </code></pre>
+
+<p><strong>分析</strong>：使用两个栈实现队列。A栈实现添加操作，B栈实现删除操作.A栈pop到B栈，B栈元素的顺序和A栈相反，所以删除B栈首元素已实现先进先出。</p>
               
             </div>
           </div>
@@ -358,7 +406,7 @@ var findRepeatNumber = function(nums) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/" data-tooltip="手写promise">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" data-tooltip="重建二叉树">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -446,7 +494,7 @@ var findRepeatNumber = function(nums) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E6%89%8B%E5%86%99promise/" data-tooltip="手写promise">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" data-tooltip="重建二叉树">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
