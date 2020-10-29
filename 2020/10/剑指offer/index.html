@@ -288,6 +288,11 @@ code.has-jax {
 <li><a href="#1-1-题目描述">1.1 题目描述</a></li>
 <li><a href="#1-2-解题">1.2 解题</a></li>
 </ul></li>
+<li><a href="#2-斐波拉契数列">2.斐波拉契数列</a>
+<ul>
+<li><a href="#2-1题目描述">2.1题目描述</a></li>
+<li><a href="#2-2解题">2.2解题</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -382,6 +387,86 @@ CQueue.prototype.deleteHead = function() {
 </code></pre>
 
 <p><strong>分析</strong>：使用两个栈实现队列。A栈实现添加操作，B栈实现删除操作.A栈pop到B栈，B栈元素的顺序和A栈相反，所以删除B栈首元素已实现先进先出。</p>
+
+<h3 id="2-斐波拉契数列">2.斐波拉契数列</h3>
+
+<h4 id="2-1题目描述">2.1题目描述</h4>
+
+<pre><code>写一个函数，输入 n，
+求斐波那契（Fibonacci）数列的第 n 项。
+
+斐波那契数列的定义如下：
+
+F(0) = 0,   F(1) = 1
+F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.
+斐波那契数列由 0 和 1 开始，
+之后的斐波那契数就是由之前的两数相加而得出。
+
+答案需要取模 1e9+7（1000000007），
+如计算初始结果为：1000000008，请返回 1。
+
+示例 1：
+
+输入：n = 2
+输出：1
+
+示例 2：
+
+输入：n = 5
+输出：5
+
+提示：
+
+0 &lt;= n &lt;= 100
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre>
+
+<pre><code class="language-js">/**
+ * @param {number} n
+ * @return {number}
+ */
+function fib(n) {
+
+};
+</code></pre>
+
+<h4 id="2-2解题">2.2解题</h4>
+
+<p><strong>递归 + 缓存</strong></p>
+
+<pre><code class="language-js">var fib = function(n) {
+    const base = Math.pow(10, 9) + 7
+    const cache = {}
+    function fibN(n){
+        if(n &lt;= 1) return n
+        if(cache[n]) return cache[n]
+        const val1 = fibN(n-1) % base
+        const val2 = fibN(n - 2) % base
+        const res = (val1 + val2) % base
+        cache[n] = res
+        return res
+    }
+    return fibN(n)
+}
+</code></pre>
+
+<p>解析： 直接递归会导致超时，因为会有大量的重复计算。所以可以使用缓存来缓存数据，若果遇见重复出现的直接从缓存中取出。</p>
+
+<p><strong>迭代</strong></p>
+
+<pre><code class="language-js">var fib = function(n){
+    const result = [0, 1]
+    for (var i = 2; i &lt;= n; i++){
+        result[i] = result[i-1] + result[i-2]
+    }
+    return result[n] % 1000000007
+}
+</code></pre>
+
+<p>解析：数组迭代记录每个值。</p>
               
             </div>
           </div>
