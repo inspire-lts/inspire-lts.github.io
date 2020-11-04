@@ -7,36 +7,36 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="阿汤">
-<meta name="keywords" content=", java, js, css, 深度学习, 随笔">
+<meta name="keywords" content="tech, java, js, css, 深度学习, 随笔">
 <meta name="description" content="">
 
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer">
-<meta name="twitter:title" content="剑指offer">
-<meta property="og:url" content="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/">
-<meta property="twitter:url" content="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/">
+<meta property="og:title" content="Redux在项目中的搭建">
+<meta name="twitter:title" content="Redux在项目中的搭建">
+<meta property="og:url" content="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/">
+<meta property="twitter:url" content="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/">
 <meta property="og:site_name" content="天天睡大觉">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="zh-cn">
 
   
-    <meta property="article:published_time" content="2020-10-27T16:21:05">
+    <meta property="article:published_time" content="2020-11-03T16:52:13">
   
   
-    <meta property="article:modified_time" content="2020-10-27T16:21:05">
+    <meta property="article:modified_time" content="2020-11-03T16:52:13">
   
-  
-  
-    
-      <meta property="article:section" content="剑指offer">
-    
   
   
     
-      <meta property="article:tag" content="刷题">
+      <meta property="article:section" content="react">
+    
+  
+  
+    
+      <meta property="article:tag" content="redux">
     
   
 
@@ -57,14 +57,14 @@
   <meta property="twitter:image" content="https://inspire-lts.github.io/images/lts.jpg">
 
 
-    <title>剑指offer</title>
+    <title>Redux在项目中的搭建</title>
 
     <link rel="icon" href="https://inspire-lts.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/">
+    <link rel="canonical" href="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -250,15 +250,15 @@ code.has-jax {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      剑指offer
+      Redux在项目中的搭建
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-10-27T16:21:05&#43;08:00">
+      <time itemprop="datePublished" datetime="2020-11-03T16:52:13&#43;08:00">
         
-  十月 27, 2020
+  十一月 3, 2020
 
       </time>
     
@@ -267,7 +267,7 @@ code.has-jax {
   
     <span>发布在</span>
     
-      <a class="category-link" href="https://inspire-lts.github.io/categories/%e5%89%91%e6%8c%87offer">剑指offer</a>
+      <a class="category-link" href="https://inspire-lts.github.io/categories/react">react</a>
     
   
 
@@ -283,190 +283,28 @@ code.has-jax {
 <ul>
 <li>
 <ul>
-<li><a href="#1-用两个栈实现队列">1.用两个栈实现队列</a>
-<ul>
-<li><a href="#1-1-题目描述">1.1 题目描述</a></li>
-<li><a href="#1-2-解题">1.2 解题</a></li>
-</ul></li>
-<li><a href="#2-斐波拉契数列">2.斐波拉契数列</a>
-<ul>
-<li><a href="#2-1题目描述">2.1题目描述</a></li>
-<li><a href="#2-2解题">2.2解题</a></li>
-</ul></li>
+<li><a href="#1-redux简述">1.redux简述</a></li>
+<li><a href="#2-项目搭建">2.项目搭建</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </nav>
 
-<h3 id="1-用两个栈实现队列">1.用两个栈实现队列</h3>
+<h3 id="1-redux简述">1.redux简述</h3>
 
-<h4 id="1-1-题目描述">1.1 题目描述</h4>
+<p>为了解决数据的管理，开发的单向数据流的处理方案。主要流程为：</p>
 
-<pre><code>用两个栈实现一个队列。
+<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20201104210457.png" alt="" /></p>
 
-队列的声明如下，请实现它的两个函数 appendTail 和 deleteHead，
-分别完成在队列尾部插入整数和在队列头部删除整数的功能。
-（若队列中没有元素，deleteHead 操作返回 -1）
+<h3 id="2-项目搭建">2.项目搭建</h3>
 
-示例 1：
+<p><img src="https://gitee.com/new_lts/MyImages/raw/master/img/20201104211136.png" alt="" /></p>
 
-输入：
-[&quot;CQueue&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]
-[[],[3],[],[]]
-输出：[null,null,3,-1]
+<p>需要使用数据管理的组件下创建redux文件夹，外层创建总的redux文件夹。</p>
 
-示例 2：
+<p><strong>demo</strong>:<code>https://codesandbox.io/s/reduxdajian-ye8wm</code></p>
 
-输入：
-[&quot;CQueue&quot;,&quot;deleteHead&quot;,&quot;appendTail&quot;,&quot;appendTail&quot;,&quot;deleteHead&quot;,&quot;deleteHead&quot;]
-[[],[],[5],[2],[],[]]
-输出：[null,-1,null,null,5,2]
-
-提示：
-
-1 &lt;= values &lt;= 10000
-最多会对 appendTail、deleteHead 进行 10000 次调用
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-</code></pre>
-
-<pre><code class="language-js">var CQueue = function() {
-  
-};
-
-/** 
- * @param {number} value
- * @return {void}
- */
-CQueue.prototype.appendTail = function(value) {
-
-};
-
-/**
- * @return {number}
- */
-CQueue.prototype.deleteHead = function() {
-
-};
-
-/**
- * Your CQueue object will be instantiated and called as such:
- * var obj = new CQueue()
- * obj.appendTail(value)
- * var param_2 = obj.deleteHead()
- */
-</code></pre>
-
-<h4 id="1-2-解题">1.2 解题</h4>
-
-<pre><code class="language-js"> var CQueue = function() {
-    this.stack1 = []
-    this.stack2 = []
-};
-
-/** 
- * @param {number} value
- * @return {void}
- */
-CQueue.prototype.appendTail = function(value) {
-    this.stack1.push(value)
-};
-
-/**
- * @return {number}
- */
-CQueue.prototype.deleteHead = function() {
-    if(!this.stack2.length){
-        while(this.stack1.length)
-            this.stack2.push(this.stack1.pop())
-    }
-    return this.stack2.pop() || -1
-};
-</code></pre>
-
-<p><strong>分析</strong>：使用两个栈实现队列。A栈实现添加操作，B栈实现删除操作.A栈pop到B栈，B栈元素的顺序和A栈相反，所以删除B栈首元素已实现先进先出。</p>
-
-<h3 id="2-斐波拉契数列">2.斐波拉契数列</h3>
-
-<h4 id="2-1题目描述">2.1题目描述</h4>
-
-<pre><code>写一个函数，输入 n，
-求斐波那契（Fibonacci）数列的第 n 项。
-
-斐波那契数列的定义如下：
-
-F(0) = 0,   F(1) = 1
-F(N) = F(N - 1) + F(N - 2), 其中 N &gt; 1.
-斐波那契数列由 0 和 1 开始，
-之后的斐波那契数就是由之前的两数相加而得出。
-
-答案需要取模 1e9+7（1000000007），
-如计算初始结果为：1000000008，请返回 1。
-
-示例 1：
-
-输入：n = 2
-输出：1
-
-示例 2：
-
-输入：n = 5
-输出：5
-
-提示：
-
-0 &lt;= n &lt;= 100
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-</code></pre>
-
-<pre><code class="language-js">/**
- * @param {number} n
- * @return {number}
- */
-function fib(n) {
-
-};
-</code></pre>
-
-<h4 id="2-2解题">2.2解题</h4>
-
-<p><strong>递归 + 缓存</strong></p>
-
-<pre><code class="language-js">var fib = function(n) {
-    const base = Math.pow(10, 9) + 7
-    const cache = {}
-    function fibN(n){
-        if(n &lt;= 1) return n
-        if(cache[n]) return cache[n]
-        const val1 = fibN(n-1) % base
-        const val2 = fibN(n - 2) % base
-        const res = (val1 + val2) % base
-        cache[n] = res
-        return res
-    }
-    return fibN(n)
-}
-</code></pre>
-
-<p>解析： 直接递归会导致超时，因为会有大量的重复计算。所以可以使用缓存来缓存数据，若果遇见重复出现的直接从缓存中取出。</p>
-
-<p><strong>迭代</strong></p>
-
-<pre><code class="language-js">var fib = function(n){
-    const result = [0, 1]
-    for (var i = 2; i &lt;= n; i++){
-        result[i] = result[i-1] + result[i-2]
-    }
-    return result[n] % 1000000007
-}
-</code></pre>
-
-<p>解析：数组迭代记录每个值。</p>
+<p>未完待续。。。。</p>
               
             </div>
           </div>
@@ -478,7 +316,7 @@ function fib(n) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">标签</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/%E5%88%B7%E9%A2%98/">刷题</a>
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/redux/">redux</a>
 
                   </div>
                 
@@ -491,7 +329,7 @@ function fib(n) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" data-tooltip="重建二叉树">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/" data-tooltip="剑指offer">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -499,7 +337,7 @@ function fib(n) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/" data-tooltip="Redux在项目中的搭建">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -535,7 +373,7 @@ function fib(n) {
   
 </div>
 
-              <span id="/2020/10/%E5%89%91%E6%8C%87offer/" class="leancloud_visitors" data-flag-title="剑指offer">
+              <span id="/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/" class="leancloud_visitors" data-flag-title="Redux在项目中的搭建">
                 <span class="post-meta-item-text">文章阅读量 </span>
                 <span class="leancloud-visitors-count">1000000</span>
                 <p></p>
@@ -579,7 +417,7 @@ function fib(n) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" data-tooltip="重建二叉树">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/" data-tooltip="剑指offer">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -587,7 +425,7 @@ function fib(n) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/" data-tooltip="Redux在项目中的搭建">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                   <i class="fa fa-angle-right"></i>
@@ -715,9 +553,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/10\/%E5%89%91%E6%8C%87offer\/';
+          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/11\/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA\/';
           
-            this.page.identifier = '\/2020\/10\/%E5%89%91%E6%8C%87offer\/'
+            this.page.identifier = '\/2020\/11\/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA\/'
           
         };
         (function() {

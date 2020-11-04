@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Oct 2020 16:21:05 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 16:52:13 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>redux</title>
+      <link>https://inspire-lts.github.io/tags/redux/</link>
+      <pubDate>Tue, 03 Nov 2020 16:52:13 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/tags/redux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>刷题</title>
