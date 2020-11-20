@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Nov 2020 16:52:13 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2020 17:14:12 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>服务器连接</title>
+      <link>https://inspire-lts.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5/</link>
+      <pubDate>Fri, 20 Nov 2020 17:14:12 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>继承</title>
+      <link>https://inspire-lts.github.io/tags/%E7%BB%A7%E6%89%BF/</link>
+      <pubDate>Tue, 10 Nov 2020 14:31:28 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/tags/%E7%BB%A7%E6%89%BF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>原型链</title>
+      <link>https://inspire-lts.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</link>
+      <pubDate>Thu, 05 Nov 2020 21:15:02 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>redux</title>

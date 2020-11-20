@@ -6,10 +6,28 @@
     <description>Recent content in js on 天天睡大觉</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Oct 2020 16:08:22 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2020 14:31:28 +0800</lastBuildDate>
     
 	<atom:link href="https://inspire-lts.github.io/categories/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS继承的实现</title>
+      <link>https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 10 Nov 2020 14:31:28 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>原型链和NEW的实现</title>
+      <link>https://inspire-lts.github.io/2020/11/%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8Cnew%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Thu, 05 Nov 2020 21:15:02 +0800</pubDate>
+      
+      <guid>https://inspire-lts.github.io/2020/11/%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8Cnew%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>手写promise</title>

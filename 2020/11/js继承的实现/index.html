@@ -7,20 +7,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.55.6 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="阿汤">
-<meta name="keywords" content=", java, js, css, 深度学习, 随笔">
-<meta name="description" content="步履不停">
+<meta name="keywords" content="tech, java, js, css, 深度学习, 随笔">
+<meta name="description" content="">
 
 
-<meta property="og:description" content="步履不停">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Posts">
-<meta name="twitter:title" content="Posts">
-<meta property="og:url" content="https://inspire-lts.github.io/post/">
-<meta property="twitter:url" content="https://inspire-lts.github.io/post/">
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS继承的实现">
+<meta name="twitter:title" content="JS继承的实现">
+<meta property="og:url" content="https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/">
+<meta property="twitter:url" content="https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/">
 <meta property="og:site_name" content="天天睡大觉">
-<meta property="og:description" content="步履不停">
-<meta name="twitter:description" content="步履不停">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
 <meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2020-11-10T14:31:28">
+  
+  
+    <meta property="article:modified_time" content="2020-11-10T14:31:28">
+  
+  
+  
+    
+      <meta property="article:section" content="js">
+    
+  
+  
+    
+      <meta property="article:tag" content="继承">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -39,16 +57,14 @@
   <meta property="twitter:image" content="https://inspire-lts.github.io/images/lts.jpg">
 
 
-    <title>Posts</title>
+    <title>JS继承的实现</title>
 
     <link rel="icon" href="https://inspire-lts.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://inspire-lts.github.io/post/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://inspire-lts.github.io/post/">
+    <link rel="canonical" href="https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -103,7 +119,7 @@ code.has-jax {
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://inspire-lts.github.io/">天天睡大觉</a>
@@ -123,7 +139,7 @@ code.has-jax {
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -224,92 +240,20 @@ code.has-jax {
 
       
 
-      <div id="main" data-behavior="2"
+      <div id="main" data-behavior="5"
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-          
-            
+            <div class="post-header main-content-wrap text-left">
   
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://inspire-lts.github.io/2020/11/pycharm%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-          Pycharm连接远程服务器
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-11-20T17:14:12&#43;08:00">
-        
-  十一月 20, 2020
-
-      </time>
-    
-    
+    <h1 class="post-title" itemprop="headline">
+      JS继承的实现
+    </h1>
   
   
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://inspire-lts.github.io/categories/%e7%82%bc%e4%b8%b9">炼丹</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://inspire-lts.github.io/2020/11/pycharm%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-          JS继承的实现
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2020-11-10T14:31:28&#43;08:00">
@@ -329,265 +273,108 @@ code.has-jax {
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://inspire-lts.github.io/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
+</div>
           
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
             
-  
-    
-      
-        
-      
-    
-  
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://inspire-lts.github.io/tags/%E7%BB%A7%E6%89%BF/">继承</a>
 
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://inspire-lts.github.io/2020/11/%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8Cnew%E7%9A%84%E5%AE%9E%E7%8E%B0/">
-          原型链和NEW的实现
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-11-05T21:15:02&#43;08:00">
-        
-  十一月 5, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://inspire-lts.github.io/categories/js">js</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://inspire-lts.github.io/2020/11/%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8Cnew%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
+                  </div>
+                
+              
             
+            <div class="post-actions-wrap">
   
-    
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/11/%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8Cnew%E7%9A%84%E5%AE%9E%E7%8E%B0/" data-tooltip="原型链和NEW的实现">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/11/pycharm%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-tooltip="Pycharm连接远程服务器">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
       
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/">
-          Redux在项目中的搭建
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
         </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-11-03T16:52:13&#43;08:00">
-        
-  十一月 3, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://inspire-lts.github.io/categories/react">react</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://inspire-lts.github.io/2020/11/redux%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%90%AD%E5%BB%BA/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/">
-          剑指offer
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-10-27T16:21:05&#43;08:00">
-        
-  十月 27, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://inspire-lts.github.io/categories/%e5%89%91%e6%8c%87offer">剑指offer</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://inspire-lts.github.io/2020/10/%E5%89%91%E6%8C%87offer/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-            
-  
-    
-      
-        
-      
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://inspire-lts.github.io/2020/10/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
-          重建二叉树
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2020-10-26T15:45:15&#43;08:00">
-        
-  十月 26, 2020
-
-      </time>
-    
-    
-  
-  
-    <span>发布在</span>
-    
-      <a class="category-link" href="https://inspire-lts.github.io/categories/%e5%89%91%e6%8c%87offer">剑指offer</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      
-        
-      
-      <p>
-        <a href="https://inspire-lts.github.io/2020/10/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/" class="postShorten-excerpt_link link">阅读全文</a>
-        
-      </p>
-    </div>
-  </div>
-  
-</article>
-
-          
-          
-  <div class="pagination-bar">
-    <ul class="pagination">
-      
-        
-        
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="https://inspire-lts.github.io/post/page/2/">
-              <span>上一页</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
-            </a>
-          </li>
-        
-      
-      <li class="pagination-number">第 1 页 共 3 页</li>
+      </li>
     </ul>
-  </div>
+  
+</div>
 
-
-        </section>
+              <span id="/2020/11/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="leancloud_visitors" data-flag-title="JS继承的实现">
+                <span class="post-meta-item-text">文章阅读量 </span>
+                <span class="leancloud-visitors-count">1000000</span>
+                <p></p>
+              </span>
+              <div id="vcomments"></div>
+              <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+              <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+              <script type="text/javascript">
+                new Valine({
+                  el: '#vcomments' ,
+                  appId: 'hG41ESlOl76S0kghFA5CFaqj-gzGzoHsz',
+                  appKey: 'atcVFCSnomrWiP7DGNI66Hag',
+                  notify: 'false',
+                  verify: '',
+                  avatar:'mp', 
+                  placeholder: 'support makedown',
+                  visitor: 'true'
+                });
+              </script>
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2020 阿汤. All Rights Reserved
@@ -595,6 +382,66 @@ code.has-jax {
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/11/%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%92%8Cnew%E7%9A%84%E5%AE%9E%E7%8E%B0/" data-tooltip="原型链和NEW的实现">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://inspire-lts.github.io/2020/11/pycharm%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8/" data-tooltip="Pycharm连接远程服务器">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -674,6 +521,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/inspire-lts.github.io\/2020\/11\/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0\/';
+          
+            this.page.identifier = '\/2020\/11\/js%E7%BB%A7%E6%89%BF%E7%9A%84%E5%AE%9E%E7%8E%B0\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 
